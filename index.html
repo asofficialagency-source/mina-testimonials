@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoe was jouw ervaring bij Mina?</title>
+<meta name="description" content="Was je bij Mina? Deel je ervaring in een paar minuten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<!-- AS Media · testimonial formulier Mina (Web3Forms, antwoorden komen per mail) -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--pink:#E8628F;--pink-d:#C93C6E;--pink-l:#FDF1F5;--pink-m:#F8D3E0;--ink:#2B1F24;--muted:#7C6A72;--line:#F1DDE6}
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;font-family:Montserrat,system-ui,sans-serif;font-weight:500;color:var(--ink);background:#fff;line-height:1.55}
+  .wrap{max-width:640px;margin:0 auto;padding:24px 20px 150px;min-height:100%}
+  .logo{width:104px;height:104px;border-radius:50%;background:#F9D9DF;display:grid;place-content:center;justify-items:center;margin:0 auto 24px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .mono{position:relative;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:#111;line-height:1;height:44px;width:58px}
+  .mono .c{position:absolute;left:4px;top:-4px;font-size:40px}
+  .mono .m{position:absolute;left:16px;top:6px;font-size:40px}
+  .lname{font-family:'Cormorant Garamond',Georgia,serif;font-size:7.5px;letter-spacing:2px;color:#111;margin-top:4px}
+  .brand{font-weight:800;font-size:14px;letter-spacing:3px;color:var(--pink-d);text-transform:uppercase;margin-bottom:22px}
+  .step{display:none;animation:in .35s ease}
+  .step.on{display:block}
+  @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .kick{display:inline-block;background:var(--pink-l);border:1.5px solid var(--pink-m);color:var(--pink-d);font-weight:700;font-size:12px;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+  h1{font-size:30px;line-height:1.15;margin:0 0 10px;font-weight:800;letter-spacing:-.6px}
+  h1 em{font-style:normal;color:var(--pink-d)}
+  .lead{color:var(--muted);margin:0 0 22px}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 6px 20px rgba(201,60,110,.05)}
+  label.t{display:block;font-weight:700;margin:0 0 7px}
+  label.t small{font-weight:500;color:var(--muted)}
+  .f{margin-bottom:16px}
+  input[type=text],textarea{width:100%;font:inherit;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+  input:focus,textarea:focus{outline:none;border-color:var(--pink)}
+  textarea{min-height:120px;resize:vertical}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .opt{display:flex;gap:10px;align-items:center;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;font-weight:600;font-size:15px;background:#fff;transition:border-color .15s,background .15s}
+  .opt:has(input:checked){border-color:var(--pink);background:var(--pink-l)}
+  .opt input{accent-color:var(--pink-d);width:18px;height:18px;flex:none}
+  .stack{grid-template-columns:1fr}
+  .more{display:none;margin-top:12px}
+  .more.on{display:block;animation:in .25s ease}
+  .more label{font-size:14px}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+  .nav{display:flex;gap:10px;margin-top:18px}
+  .back{border:1.5px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-weight:700;padding:14px 18px;border-radius:999px;cursor:pointer}
+  .next{flex:1;border:0;background:var(--pink-d);color:#fff;font:inherit;font-weight:700;font-size:16px;padding:15px;border-radius:999px;cursor:pointer}
+  .next:disabled{opacity:.7}
+  .err{color:#B3261E;font-size:13px;font-weight:600;margin-top:8px;min-height:18px}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1.5px solid var(--line);padding:12px 20px 16px}
+  .bar .in{max-width:640px;margin:0 auto}
+  .msg{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--pink-d);margin-bottom:8px}
+  .track{position:relative;height:50px;border-radius:999px;background:var(--pink-l);border:1.5px solid var(--line);overflow:hidden}
+  .fill{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(100deg,var(--pink),var(--pink-d));transition:width .5s ease;overflow:hidden;z-index:2}
+  .fill b{position:absolute;inset:0 auto 0 0;display:grid;place-content:center;color:#fff;font-weight:800;white-space:nowrap}
+  .track span{position:absolute;inset:0;display:grid;place-content:center;font-weight:800;color:var(--ink)}
+  .thanks{text-align:left;padding:10px 0}
+  .thanks h1{font-size:32px}
+  .heart{display:grid;place-content:center;width:64px;height:64px;border-radius:50%;background:var(--pink-l);border:1.5px solid var(--pink-m);font-size:30px;margin-bottom:16px}
+  @media (max-width:560px){.opts{grid-template-columns:1fr}h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo" aria-label="Coiffure Mina"><div class="mono"><span class="c">C</span><span class="m">M</span></div><div class="lname">COIFFURE MINA</div></div>
+
+  <form id="f" novalidate>
+    <!-- Spam-bescherming (Web3Forms honeypot): moet leeg blijven -->
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <!-- 1 -->
+    <section class="step" data-msg="We beginnen">
+      <span class="kick">Duurt ongeveer 3 minuten</span>
+      <h1>Hoe was jouw ervaring bij <em>Mina</em>?</h1>
+      <p class="lead">Jouw verhaal helpt andere vrouwen om de stap te zetten. Alvast bedankt dat je het wil delen.</p>
+      <div class="card">
+        <div class="f"><label class="t" for="name">Je naam</label><input id="name" type="text" name="Naam" required autocomplete="name"></div>
+        <div class="f"><label class="t" for="ig">Instagram <small>(optioneel)</small></label><input id="ig" type="text" name="Instagram" placeholder="@jouwnaam" autocomplete="off"></div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="step" data-msg="Goed bezig">
+      <h1>Welke behandeling heb je gehad?</h1>
+      <p class="lead">Kies alles wat past.</p>
+      <div class="card">
+        <div class="opts" data-name="Behandeling" data-req="1">
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Extensions">Extensions</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Vlechten / braids">Vlechten / braids</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Wig install">Wig install</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Kleuren">Kleuren</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Knippen / verzorging">Knippen / verzorging</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Andere" data-more>Andere</label>
+        </div>
+        <div class="more"><label class="t">Welke behandeling dan?</label><input type="text" name="Behandeling (andere)"></div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="step" data-msg="Goed bezig">
+      <h1>Hoe was je haar, en hoe voelde je je ervoor?</h1>
+      <p class="lead">Denk terug aan voor je bij Mina kwam. Wat speelde er?</p>
+      <div class="card">
+        <textarea name="Situatie ervoor" required class="big" style="min-height:190px" placeholder="Bijvoorbeeld: mijn haar was droog en beschadigd, ik wist niet meer naar wie ik moest gaan en voelde me onzeker."></textarea>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="step" data-msg="Halverwege">
+      <h1>Wat heeft Mina voor je gedaan?</h1>
+      <p class="lead">Vertel in je eigen woorden wat er gebeurde in de stoel.</p>
+      <div class="card">
+        <textarea name="Wat Mina deed" required style="min-height:190px" placeholder="Bijvoorbeeld: ze nam alle tijd, legde uit wat ze deed en vroeg wat ik wilde."></textarea>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="step" data-msg="Bijna klaar">
+      <h1>Hoe voel je je nu?</h1>
+      <p class="lead">Vertel over het resultaat en wat het met je gedaan heeft.</p>
+      <div class="card">
+        <textarea name="Resultaat en gevoel nu" required style="min-height:190px" placeholder="Bijvoorbeeld: ik voel me zelfverzekerd, mijn haar ziet er gezond uit en ik krijg veel complimenten."></textarea>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="step" data-msg="Bijna klaar">
+      <h1>Wat vond je het beste?</h1>
+      <p class="lead">Eén ding is genoeg.</p>
+      <div class="card">
+        <textarea name="Het beste" required placeholder="Bijvoorbeeld: de rust in de salon, hoe netjes het werk is, hoe ze naar me luisterde."></textarea>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="step" data-msg="Bijna klaar">
+      <h1>Zou je Mina aanraden?</h1>
+      <div class="card">
+        <div class="opts stack" data-name="Aanraden" data-req="1">
+          <label class="opt"><input type="radio" name="Aanraden" value="Ja">Ja</label>
+          <label class="opt"><input type="radio" name="Aanraden" value="Misschien">Misschien</label>
+          <label class="opt"><input type="radio" name="Aanraden" value="Nee">Nee</label>
+        </div>
+        <label class="t" for="why" style="margin-top:18px">Waarom? <small>(een zin is genoeg)</small></label>
+        <textarea id="why" name="Waarom aanraden" required style="min-height:100px" placeholder="Bijvoorbeeld: omdat ze echt weet hoe ze met mijn haartype moet werken."></textarea>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="step" data-msg="Laatste stap">
+      <h1>Mogen we je antwoord delen?</h1>
+      <p class="lead">Mina wil je woorden graag op social media gebruiken. Jij bepaalt hoe.</p>
+      <div class="card">
+        <div class="opts stack" data-name="Toestemming" data-req="1">
+          <label class="opt"><input type="radio" name="Toestemming" value="Ja, met mijn naam">Ja, met mijn naam</label>
+          <label class="opt"><input type="radio" name="Toestemming" value="Ja, anoniem">Ja, anoniem</label>
+          <label class="opt"><input type="radio" name="Toestemming" value="Nee">Nee, liever niet</label>
+        </div>
+      </div>
+    </section>
+
+    <div class="err" id="err"></div>
+    <div class="nav" id="nav">
+      <button type="button" class="back" id="back">Terug</button>
+      <button type="button" class="next" id="next">Volgende</button>
+    </div>
+  </form>
+
+  <div class="thanks step" id="thanks">
+    <div class="heart">💗</div>
+    <h1>Dankjewel!</h1>
+    <p class="lead">Je ervaring is verstuurd naar Mina. Het betekent echt veel voor haar, en het helpt andere vrouwen die twijfelen om de stap te zetten.</p>
+    <p class="lead">Tot snel in de salon.</p>
+  </div>
+</div>
+
+<div class="bar"><div class="in">
+  <div class="msg"><span id="msg">We beginnen</span><span id="cnt">1 / 8</span></div>
+  <div class="track" id="track"><span id="barTxt">Verstuur mijn ervaring</span><div class="fill" id="fill"><b id="barTxt2">Verstuur mijn ervaring</b></div></div>
+</div></div>
+
+<script>
+const WEB3FORMS_KEY = '7bff82df-9018-4cff-828f-3795eb3922d1';
+
+const steps=[...document.querySelectorAll('#f .step')];
+let cur=0;
+const $=id=>document.getElementById(id);
+
+// "Andere" opent het extra veld
+document.querySelectorAll('.opts').forEach(g=>{
+  g.addEventListener('change',()=>{
+    const more=g.nextElementSibling;
+    if(!more||!more.classList.contains('more'))return;
+    const other=g.querySelector('input[data-more]');
+    if(other){ more.classList.toggle('on', other.checked); if(other.checked) more.querySelector('input,textarea').focus(); }
+  });
+});
+
+function valid(i){
+  const s=steps[i];
+  for(const el of s.querySelectorAll('input[required],textarea[required]')){
+    if(!el.value.trim()) return 'Vul dit nog even in, dan kun je verder.';
+  }
+  for(const g of s.querySelectorAll('[data-req]')){
+    if(!g.querySelector('input:checked')) return 'Kies minstens één optie.';
+    const o=g.querySelector('input[data-more]:checked');
+    if(o){ const m=g.nextElementSibling; const t=m&&m.querySelector('input,textarea'); if(t && !t.value.trim()){ t.focus(); return 'Je koos "Andere": vertel in het vakje hieronder welke.'; } }
+  }
+  return '';
+}
+function show(i){
+  steps.forEach((s,k)=>s.classList.toggle('on',k===i));
+  cur=i;
+  $('back').style.visibility=i?'visible':'hidden';
+  $('next').textContent=i===steps.length-1?'Verstuur mijn ervaring':'Volgende';
+  $('msg').textContent=steps[i].dataset.msg;
+  $('cnt').textContent=(i+1)+' / '+steps.length;
+  const p=Math.round(i/steps.length*100);
+  $('fill').style.width=p+'%';
+  $('barTxt').textContent=i===steps.length-1?'Je bent er bijna':p+'% · Verstuur mijn ervaring';
+  $('barTxt2').textContent=$('barTxt').textContent; $('barTxt2').style.width=$('track').clientWidth+'px';
+  $('err').textContent='';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+$('back').onclick=()=>show(Math.max(0,cur-1));
+$('next').onclick=async()=>{
+  const e=valid(cur); if(e){$('err').textContent=e;return;}
+  if(cur<steps.length-1) return show(cur+1);
+  await send();
+};
+
+async function send(){
+  const btn=$('next'); btn.disabled=true; btn.textContent='Versturen…';
+  $('fill').style.width='92%';
+  const d=new FormData($('f'));
+  const out=new FormData();
+  out.append('access_key',WEB3FORMS_KEY);
+  out.append('subject','Nieuwe testimonial - Mina');
+  out.append('from_name','Mina testimonials');
+  const seen=new Set();
+  for(const [k] of d){ if(seen.has(k))continue; seen.add(k); const v=d.getAll(k).filter(x=>String(x).trim()).join(', '); if(v) out.append(k,v); }
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:out,headers:{Accept:'application/json'}});
+    const j=await r.json(); if(!j.success) throw 0;
+    $('fill').style.width='100%'; $('barTxt').textContent='Verstuurd ✓'; $('barTxt2').textContent='Verstuurd ✓'; $('msg').textContent='Klaar';
+    $('f').style.display='none'; $('thanks').classList.add('on'); window.scrollTo(0,0);
+  }catch(_){ btn.disabled=false; btn.textContent='Verstuur mijn ervaring'; $('err').textContent='Er ging iets mis, probeer het nog eens.'; }
+}
+show(Math.min(steps.length-1,+(new URLSearchParams(location.search).get("step")||0)));
+</script>
+</body>
+</html>
