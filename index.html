@@ -60,6 +60,15 @@
   .thanks{text-align:left;padding:10px 0}
   .thanks h1{font-size:32px}
   .heart{display:grid;place-content:center;width:64px;height:64px;border-radius:50%;background:var(--pink-l);border:1.5px solid var(--pink-m);font-size:30px;margin-bottom:16px}
+  .opt-s{font-size:15px;font-weight:600;color:var(--muted)}
+  .photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ph{position:relative;display:grid;place-items:center;aspect-ratio:3/4;border:1.5px dashed var(--pink-m);border-radius:16px;background:var(--pink-l);cursor:pointer;overflow:hidden}
+  .ph input{position:absolute;opacity:0;width:1px;height:1px}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .ph.has img{display:block}
+  .pt{position:absolute;top:10px;left:10px;z-index:2;background:#fff;color:var(--pink-d);font-weight:800;font-size:13px;padding:4px 10px;border-radius:999px}
+  .pc{font-weight:700;color:var(--pink-d)}
+  .ph.has .pc{display:none}
   @media (max-width:560px){.opts{grid-template-columns:1fr}h1{font-size:25px}}
 </style>
 </head>
@@ -71,21 +80,16 @@
     <!-- Spam-bescherming (Web3Forms honeypot): moet leeg blijven -->
     <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <!-- 1 -->
     <section class="step" data-msg="We beginnen">
-      <span class="kick">Duurt ongeveer 3 minuten</span>
       <h1>Hoe was jouw ervaring bij <em>Coiffure Mina</em>?</h1>
-      <p class="lead">Jouw verhaal helpt andere vrouwen om de stap te zetten. Alvast bedankt dat je het wil delen.</p>
       <div class="card">
         <div class="f"><label class="t" for="name">Je naam</label><input id="name" type="text" name="Naam" required autocomplete="name"></div>
         <div class="f"><label class="t" for="ig">Instagram <small>(optioneel)</small></label><input id="ig" type="text" name="Instagram" placeholder="@jouwnaam" autocomplete="off"></div>
       </div>
     </section>
 
-    <!-- 2 -->
     <section class="step" data-msg="Goed bezig">
       <h1>Welke behandeling heb je gehad?</h1>
-      <p class="lead">Kies alles wat past.</p>
       <div class="card">
         <div class="opts" data-name="Behandeling" data-req="1">
           <label class="opt"><input type="checkbox" name="Behandeling" value="Sew-in extensions (leave-out)">Sew-in extensions (leave-out)</label>
@@ -94,57 +98,98 @@
           <label class="opt"><input type="checkbox" name="Behandeling" value="Trim / extra verzorging">Trim / extra verzorging</label>
           <label class="opt"><input type="checkbox" name="Behandeling" value="Andere" data-more>Andere</label>
         </div>
-        <div class="more"><label class="t">Welke behandeling dan?</label><input type="text" name="Behandeling (andere)"></div>
+        <div class="more"><label class="t">Vertel welke</label><input type="text" name="Behandeling (andere)"></div>
       </div>
     </section>
 
-    <!-- 3 -->
     <section class="step" data-msg="Goed bezig">
-      <h1>Hoe was je haar, en hoe voelde je je ervoor?</h1>
-      <p class="lead">Denk terug aan voor je bij Coiffure Mina kwam. Wat speelde er?</p>
+      <h1>Hoe was je haar voor je kwam?</h1>
       <div class="card">
-        <textarea name="Situatie ervoor" required class="big" style="min-height:190px" placeholder="Bijvoorbeeld: mijn haar was droog en beschadigd, ik wist niet meer naar wie ik moest gaan en voelde me onzeker."></textarea>
+        <div class="opts" data-name="Haar ervoor" data-req="1">
+          <label class="opt"><input type="checkbox" name="Haar ervoor" value="Droog of beschadigd">Droog of beschadigd</label>
+          <label class="opt"><input type="checkbox" name="Haar ervoor" value="Dun of afgebroken randen">Dun of afgebroken randen</label>
+          <label class="opt"><input type="checkbox" name="Haar ervoor" value="Moeilijk te onderhouden">Moeilijk te onderhouden</label>
+          <label class="opt"><input type="checkbox" name="Haar ervoor" value="Geen stijl die bij me paste">Geen stijl die bij me paste</label>
+          <label class="opt"><input type="checkbox" name="Haar ervoor" value="Slechte ervaring bij een andere kapper">Slechte ervaring bij een andere kapper</label>
+          <label class="opt"><input type="checkbox" name="Haar ervoor" value="Andere" data-more>Andere</label>
+        </div>
+        <div class="more"><label class="t">Vertel welke</label><input type="text" name="Haar ervoor (andere)"></div>
       </div>
     </section>
 
-    <!-- 4 -->
-    <section class="step" data-msg="Halverwege">
-      <h1>Wat hebben we voor je gedaan?</h1>
-      <p class="lead">Vertel in je eigen woorden wat er gebeurde in de stoel.</p>
+    <section class="step" data-msg="Goed bezig">
+      <h1>Hoe voelde je je toen?</h1>
       <div class="card">
-        <textarea name="Wat we deden" required style="min-height:190px" placeholder="Bijvoorbeeld: ze nam alle tijd, legde uit wat ze deed en vroeg wat ik wilde."></textarea>
+        <div class="opts" data-name="Gevoel ervoor" data-req="1">
+          <label class="opt"><input type="checkbox" name="Gevoel ervoor" value="Onzeker">Onzeker</label>
+          <label class="opt"><input type="checkbox" name="Gevoel ervoor" value="Gefrustreerd">Gefrustreerd</label>
+          <label class="opt"><input type="checkbox" name="Gevoel ervoor" value="Bang voor schade aan mijn haar">Bang voor schade aan mijn haar</label>
+          <label class="opt"><input type="checkbox" name="Gevoel ervoor" value="Ik wist niet bij wie ik terecht kon">Ik wist niet bij wie ik terecht kon</label>
+          <label class="opt"><input type="checkbox" name="Gevoel ervoor" value="Andere" data-more>Andere</label>
+        </div>
+        <div class="more"><label class="t">Vertel welke</label><input type="text" name="Gevoel ervoor (andere)"></div>
       </div>
     </section>
 
-    <!-- 5 -->
-    <section class="step" data-msg="Bijna klaar">
+    <section class="step" data-msg="Goed bezig">
+      <h1>Waarom koos je voor Coiffure Mina?</h1>
+      <div class="card">
+        <div class="opts" data-name="Waarom gekozen" data-req="1">
+          <label class="opt"><input type="checkbox" name="Waarom gekozen" value="Haar werk op Instagram">Haar werk op Instagram</label>
+          <label class="opt"><input type="checkbox" name="Waarom gekozen" value="Iemand raadde haar aan">Iemand raadde haar aan</label>
+          <label class="opt"><input type="checkbox" name="Waarom gekozen" value="Gespecialiseerd in krullend haar">Gespecialiseerd in krullend haar</label>
+          <label class="opt"><input type="checkbox" name="Waarom gekozen" value="Goede reviews">Goede reviews</label>
+          <label class="opt"><input type="checkbox" name="Waarom gekozen" value="Andere" data-more>Andere</label>
+        </div>
+        <div class="more"><label class="t">Vertel welke</label><input type="text" name="Waarom gekozen (andere)"></div>
+      </div>
+    </section>
+
+    <section class="step" data-msg="Goed bezig">
       <h1>Hoe voel je je nu?</h1>
-      <p class="lead">Vertel over het resultaat en wat het met je gedaan heeft.</p>
       <div class="card">
-        <textarea name="Resultaat en gevoel nu" required style="min-height:190px" placeholder="Bijvoorbeeld: ik voel me zelfverzekerd, mijn haar ziet er gezond uit en ik krijg veel complimenten."></textarea>
+        <div class="opts" data-name="Gevoel nu" data-req="1">
+          <label class="opt"><input type="checkbox" name="Gevoel nu" value="Zelfverzekerd">Zelfverzekerd</label>
+          <label class="opt"><input type="checkbox" name="Gevoel nu" value="Mooi">Mooi</label>
+          <label class="opt"><input type="checkbox" name="Gevoel nu" value="Mijn haar voelt gezond">Mijn haar voelt gezond</label>
+          <label class="opt"><input type="checkbox" name="Gevoel nu" value="Ik krijg complimenten">Ik krijg complimenten</label>
+          <label class="opt"><input type="checkbox" name="Gevoel nu" value="Makkelijk te onderhouden">Makkelijk te onderhouden</label>
+          <label class="opt"><input type="checkbox" name="Gevoel nu" value="Andere" data-more>Andere</label>
+        </div>
+        <div class="more"><label class="t">Vertel welke</label><input type="text" name="Gevoel nu (andere)"></div>
       </div>
     </section>
 
-    <!-- 6 -->
-    <section class="step" data-msg="Bijna klaar">
+    <section class="step" data-msg="Goed bezig">
       <h1>Wat vond je het beste?</h1>
-      <p class="lead">Eén ding is genoeg.</p>
       <div class="card">
-        <textarea name="Het beste" required placeholder="Bijvoorbeeld: de rust in de salon, hoe netjes het werk is, hoe ze naar me luisterde."></textarea>
+        <div class="opts" data-name="Het beste" data-req="1">
+          <label class="opt"><input type="checkbox" name="Het beste" value="Het resultaat">Het resultaat</label>
+          <label class="opt"><input type="checkbox" name="Het beste" value="Hoe ze luisterde">Hoe ze luisterde</label>
+          <label class="opt"><input type="checkbox" name="Het beste" value="Hoe comfortabel het zat">Hoe comfortabel het zat</label>
+          <label class="opt"><input type="checkbox" name="Het beste" value="Hoe netjes het werk is">Hoe netjes het werk is</label>
+          <label class="opt"><input type="checkbox" name="Het beste" value="De sfeer in de salon">De sfeer in de salon</label>
+          <label class="opt"><input type="checkbox" name="Het beste" value="Andere" data-more>Andere</label>
+        </div>
+        <div class="more"><label class="t">Vertel welke</label><input type="text" name="Het beste (andere)"></div>
       </div>
     </section>
 
-    <!-- 6b -->
-    <section class="step" data-msg="Bijna klaar">
-      <h1>Hoe was je ervaring in de salon zelf?</h1>
-      <p class="lead">Het boeken, het onthaal, de sfeer, de communicatie. Wat viel je op?</p>
+    <section class="step" data-msg="Goed bezig">
+      <h1>Hoe was het in de salon?</h1>
       <div class="card">
-        <textarea name="Ervaring salon" required placeholder="Bijvoorbeeld: boeken ging vlot, ik voelde me meteen welkom en ze hield me op de hoogte."></textarea>
+        <div class="opts" data-name="Ervaring salon" data-req="1">
+          <label class="opt"><input type="checkbox" name="Ervaring salon" value="Boeken ging vlot">Boeken ging vlot</label>
+          <label class="opt"><input type="checkbox" name="Ervaring salon" value="Ik voelde me welkom">Ik voelde me welkom</label>
+          <label class="opt"><input type="checkbox" name="Ervaring salon" value="Ze hield me op de hoogte">Ze hield me op de hoogte</label>
+          <label class="opt"><input type="checkbox" name="Ervaring salon" value="Alles was op tijd">Alles was op tijd</label>
+          <label class="opt"><input type="checkbox" name="Ervaring salon" value="Andere" data-more>Andere</label>
+        </div>
+        <div class="more"><label class="t">Vertel welke</label><input type="text" name="Ervaring salon (andere)"></div>
       </div>
     </section>
 
-    <!-- 7 -->
-    <section class="step" data-msg="Bijna klaar">
+    <section class="step" data-msg="Goed bezig">
       <h1>Zou je Coiffure Mina aanraden?</h1>
       <div class="card">
         <div class="opts stack" data-name="Aanraden" data-req="1">
@@ -152,20 +197,26 @@
           <label class="opt"><input type="radio" name="Aanraden" value="Misschien">Misschien</label>
           <label class="opt"><input type="radio" name="Aanraden" value="Nee">Nee</label>
         </div>
-        <label class="t" for="why" style="margin-top:18px">Waarom? <small>(een zin is genoeg)</small></label>
-        <textarea id="why" name="Waarom aanraden" required style="min-height:100px" placeholder="Bijvoorbeeld: omdat ze echt weet hoe ze met mijn haartype moet werken."></textarea>
       </div>
     </section>
 
-    <!-- 8 -->
-    <section class="step" data-msg="Laatste stap">
+    <section class="step" data-msg="Bijna klaar">
+      <h1>Wil je een foto van je haar toevoegen? <small class="opt-s">(optioneel)</small></h1>
+      <div class="card">
+        <div class="photos">
+          <label class="ph" data-ph="Foto voor"><input type="file" accept="image/*"><span class="pt">Voor</span><img alt=""><span class="pc">Kies foto</span></label>
+          <label class="ph" data-ph="Foto na"><input type="file" accept="image/*"><span class="pt">Na</span><img alt=""><span class="pc">Kies foto</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="step" data-msg="Goed bezig">
       <h1>Mogen we je antwoord delen?</h1>
-      <p class="lead">Coiffure Mina wil je woorden graag op social media gebruiken. Jij bepaalt hoe.</p>
       <div class="card">
         <div class="opts stack" data-name="Toestemming" data-req="1">
           <label class="opt"><input type="radio" name="Toestemming" value="Ja, met mijn naam">Ja, met mijn naam</label>
           <label class="opt"><input type="radio" name="Toestemming" value="Ja, anoniem">Ja, anoniem</label>
-          <label class="opt"><input type="radio" name="Toestemming" value="Nee">Nee, liever niet</label>
+          <label class="opt"><input type="radio" name="Toestemming" value="Nee, liever niet">Nee, liever niet</label>
         </div>
       </div>
     </section>
@@ -180,13 +231,12 @@
   <div class="thanks step" id="thanks">
     <div class="heart">💗</div>
     <h1>Dankjewel!</h1>
-    <p class="lead">Je ervaring is verstuurd naar Coiffure Mina. Het betekent echt veel voor haar, en het helpt andere vrouwen die twijfelen om de stap te zetten.</p>
-    <p class="lead">Tot snel in de salon.</p>
+    <p class="lead">Je ervaring is verstuurd naar Coiffure Mina.</p>
   </div>
 </div>
 
 <div class="bar"><div class="in">
-  <div class="msg"><span id="msg">We beginnen</span><span id="cnt">1 / 9</span></div>
+  <div class="msg"><span id="msg">We beginnen</span><span id="cnt">1 / 11</span></div>
   <div class="track" id="track"><span id="barTxt">Verstuur mijn ervaring</span><div class="fill" id="fill"><b id="barTxt2">Verstuur mijn ervaring</b></div></div>
 </div></div>
 
@@ -207,6 +257,15 @@ document.querySelectorAll('.opts').forEach(g=>{
   });
 });
 
+const photos={};
+document.querySelectorAll('.ph').forEach(l=>{
+  l.querySelector('input').addEventListener('change',e=>{
+    const f=e.target.files[0]; if(!f) return;
+    const img=new Image(); const u=URL.createObjectURL(f);
+    img.onload=()=>{ const m=1000, r=Math.min(1,m/Math.max(img.width,img.height)); const c=document.createElement('canvas'); c.width=Math.round(img.width*r); c.height=Math.round(img.height*r); c.getContext('2d').drawImage(img,0,0,c.width,c.height); const d=c.toDataURL('image/jpeg',0.75); photos[l.dataset.ph]=d; l.querySelector('img').src=d; l.classList.add('has'); URL.revokeObjectURL(u); };
+    img.src=u;
+  });
+});
 function valid(i){
   const s=steps[i];
   for(const el of s.querySelectorAll('input[required],textarea[required]')){
@@ -215,7 +274,7 @@ function valid(i){
   for(const g of s.querySelectorAll('[data-req]')){
     if(!g.querySelector('input:checked')) return 'Kies minstens één optie.';
     const o=g.querySelector('input[data-more]:checked');
-    if(o){ const m=g.nextElementSibling; const t=m&&m.querySelector('input,textarea'); if(t && !t.value.trim()){ t.focus(); return 'Je koos "Andere": vertel in het vakje hieronder welke.'; } }
+    if(o){ const m=g.nextElementSibling; const t=m&&m.querySelector('input,textarea'); if(t && !t.value.trim()){ t.focus(); return 'Vul bij Andere nog even in welke.'; } }
   }
   return '';
 }
@@ -250,6 +309,7 @@ async function send(){
   out.append('from_name','Mina testimonials');
   const seen=new Set();
   for(const [k] of d){ if(seen.has(k))continue; seen.add(k); const v=d.getAll(k).filter(x=>String(x).trim()).join(', '); if(v) out.append(k,v); }
+  for(const k in photos) out.append(k,photos[k]);
   try{
     const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:out,headers:{Accept:'application/json'}});
     const j=await r.json(); if(!j.success) throw 0;
