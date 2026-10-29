@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hoe was jouw ervaring bij Mina?</title>
-<meta name="description" content="Was je bij Mina? Deel je ervaring in een paar minuten.">
+<title>Hoe was jouw ervaring bij Coiffure Mina?</title>
+<meta name="description" content="Was je bij Coiffure Mina? Deel je ervaring in een paar minuten.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <!-- AS Media · testimonial formulier Mina (Web3Forms, antwoorden komen per mail) -->
@@ -15,7 +15,8 @@
   html,body{height:100%}
   body{margin:0;font-family:Montserrat,system-ui,sans-serif;font-weight:500;color:var(--ink);background:#fff;line-height:1.55}
   .wrap{max-width:640px;margin:0 auto;padding:24px 20px 150px;min-height:100%}
-  .logo{width:104px;height:104px;border-radius:50%;background:#F9D9DF;display:grid;place-content:center;justify-items:center;margin:0 auto 24px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .logo{width:112px;height:112px;border-radius:50%;background:#F9D9DF;overflow:hidden;margin:0 auto 24px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .logo img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;display:block}
   .mono{position:relative;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:#111;line-height:1;height:44px;width:58px}
   .mono .c{position:absolute;left:4px;top:-4px;font-size:40px}
   .mono .m{position:absolute;left:16px;top:6px;font-size:40px}
@@ -64,7 +65,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="logo" aria-label="Coiffure Mina"><div class="mono"><span class="c">C</span><span class="m">M</span></div><div class="lname">COIFFURE MINA</div></div>
+  <div class="logo"><img src="logo.png" alt="Coiffure Mina"></div>
 
   <form id="f" novalidate>
     <!-- Spam-bescherming (Web3Forms honeypot): moet leeg blijven -->
@@ -73,7 +74,7 @@
     <!-- 1 -->
     <section class="step" data-msg="We beginnen">
       <span class="kick">Duurt ongeveer 3 minuten</span>
-      <h1>Hoe was jouw ervaring bij <em>Mina</em>?</h1>
+      <h1>Hoe was jouw ervaring bij <em>Coiffure Mina</em>?</h1>
       <p class="lead">Jouw verhaal helpt andere vrouwen om de stap te zetten. Alvast bedankt dat je het wil delen.</p>
       <div class="card">
         <div class="f"><label class="t" for="name">Je naam</label><input id="name" type="text" name="Naam" required autocomplete="name"></div>
@@ -87,11 +88,10 @@
       <p class="lead">Kies alles wat past.</p>
       <div class="card">
         <div class="opts" data-name="Behandeling" data-req="1">
-          <label class="opt"><input type="checkbox" name="Behandeling" value="Extensions">Extensions</label>
-          <label class="opt"><input type="checkbox" name="Behandeling" value="Vlechten / braids">Vlechten / braids</label>
-          <label class="opt"><input type="checkbox" name="Behandeling" value="Wig install">Wig install</label>
-          <label class="opt"><input type="checkbox" name="Behandeling" value="Kleuren">Kleuren</label>
-          <label class="opt"><input type="checkbox" name="Behandeling" value="Knippen / verzorging">Knippen / verzorging</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Sew-in extensions (leave-out)">Sew-in extensions (leave-out)</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Ponytail">Ponytail</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Raw Indian hair (CM Xtensions)">Raw Indian hair (CM Xtensions)</label>
+          <label class="opt"><input type="checkbox" name="Behandeling" value="Trim / extra verzorging">Trim / extra verzorging</label>
           <label class="opt"><input type="checkbox" name="Behandeling" value="Andere" data-more>Andere</label>
         </div>
         <div class="more"><label class="t">Welke behandeling dan?</label><input type="text" name="Behandeling (andere)"></div>
@@ -101,7 +101,7 @@
     <!-- 3 -->
     <section class="step" data-msg="Goed bezig">
       <h1>Hoe was je haar, en hoe voelde je je ervoor?</h1>
-      <p class="lead">Denk terug aan voor je bij Mina kwam. Wat speelde er?</p>
+      <p class="lead">Denk terug aan voor je bij Coiffure Mina kwam. Wat speelde er?</p>
       <div class="card">
         <textarea name="Situatie ervoor" required class="big" style="min-height:190px" placeholder="Bijvoorbeeld: mijn haar was droog en beschadigd, ik wist niet meer naar wie ik moest gaan en voelde me onzeker."></textarea>
       </div>
@@ -109,10 +109,10 @@
 
     <!-- 4 -->
     <section class="step" data-msg="Halverwege">
-      <h1>Wat heeft Mina voor je gedaan?</h1>
+      <h1>Wat hebben we voor je gedaan?</h1>
       <p class="lead">Vertel in je eigen woorden wat er gebeurde in de stoel.</p>
       <div class="card">
-        <textarea name="Wat Mina deed" required style="min-height:190px" placeholder="Bijvoorbeeld: ze nam alle tijd, legde uit wat ze deed en vroeg wat ik wilde."></textarea>
+        <textarea name="Wat we deden" required style="min-height:190px" placeholder="Bijvoorbeeld: ze nam alle tijd, legde uit wat ze deed en vroeg wat ik wilde."></textarea>
       </div>
     </section>
 
@@ -134,9 +134,18 @@
       </div>
     </section>
 
+    <!-- 6b -->
+    <section class="step" data-msg="Bijna klaar">
+      <h1>Hoe was je ervaring in de salon zelf?</h1>
+      <p class="lead">Het boeken, het onthaal, de sfeer, de communicatie. Wat viel je op?</p>
+      <div class="card">
+        <textarea name="Ervaring salon" required placeholder="Bijvoorbeeld: boeken ging vlot, ik voelde me meteen welkom en ze hield me op de hoogte."></textarea>
+      </div>
+    </section>
+
     <!-- 7 -->
     <section class="step" data-msg="Bijna klaar">
-      <h1>Zou je Mina aanraden?</h1>
+      <h1>Zou je Coiffure Mina aanraden?</h1>
       <div class="card">
         <div class="opts stack" data-name="Aanraden" data-req="1">
           <label class="opt"><input type="radio" name="Aanraden" value="Ja">Ja</label>
@@ -151,7 +160,7 @@
     <!-- 8 -->
     <section class="step" data-msg="Laatste stap">
       <h1>Mogen we je antwoord delen?</h1>
-      <p class="lead">Mina wil je woorden graag op social media gebruiken. Jij bepaalt hoe.</p>
+      <p class="lead">Coiffure Mina wil je woorden graag op social media gebruiken. Jij bepaalt hoe.</p>
       <div class="card">
         <div class="opts stack" data-name="Toestemming" data-req="1">
           <label class="opt"><input type="radio" name="Toestemming" value="Ja, met mijn naam">Ja, met mijn naam</label>
@@ -171,13 +180,13 @@
   <div class="thanks step" id="thanks">
     <div class="heart">💗</div>
     <h1>Dankjewel!</h1>
-    <p class="lead">Je ervaring is verstuurd naar Mina. Het betekent echt veel voor haar, en het helpt andere vrouwen die twijfelen om de stap te zetten.</p>
+    <p class="lead">Je ervaring is verstuurd naar Coiffure Mina. Het betekent echt veel voor haar, en het helpt andere vrouwen die twijfelen om de stap te zetten.</p>
     <p class="lead">Tot snel in de salon.</p>
   </div>
 </div>
 
 <div class="bar"><div class="in">
-  <div class="msg"><span id="msg">We beginnen</span><span id="cnt">1 / 8</span></div>
+  <div class="msg"><span id="msg">We beginnen</span><span id="cnt">1 / 9</span></div>
   <div class="track" id="track"><span id="barTxt">Verstuur mijn ervaring</span><div class="fill" id="fill"><b id="barTxt2">Verstuur mijn ervaring</b></div></div>
 </div></div>
 
@@ -237,7 +246,7 @@ async function send(){
   const d=new FormData($('f'));
   const out=new FormData();
   out.append('access_key',WEB3FORMS_KEY);
-  out.append('subject','Nieuwe testimonial - Mina');
+  out.append('subject','Nieuwe testimonial - Coiffure Mina');
   out.append('from_name','Mina testimonials');
   const seen=new Set();
   for(const [k] of d){ if(seen.has(k))continue; seen.add(k); const v=d.getAll(k).filter(x=>String(x).trim()).join(', '); if(v) out.append(k,v); }
